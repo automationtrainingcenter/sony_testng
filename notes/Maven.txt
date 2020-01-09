@@ -1,0 +1,102 @@
+Maven
+
+it's java build automation tool
+coding -> unit testing -> integragtion testing
+-> deploy for testing -> system testing ->
+package the content (either jar, war, ear)
+-> verify packaging -> deploye the production
+
+Before Maven we have Ant
+both Maven and Ant were implemented by Apache
+
+Gradle is used for mobile apps dev and testing
+Maven mainly followes convention over configuration
+To create common folder structure
+To manage resources
+To manage jar files association
+
+
+
+Configure Maven in Windows
+1. download Maven from https://maven.apache.org/download.cgi 
+make sure you download bin.zip file
+2. extract zip file into any folder
+eg: D:\selenium\softwares\maven
+3. create M2_HOME environmental variable
+right click on This PC/My Computer - properties - 
+advanced system settings - environment variables
+- in System variables click new - add variable name
+as M2_HOME and vairable value as path of maven root
+folder which we got in step 2 (D:\selenium\softwares\maven)
+-click on Ok 
+4. edit path environment variable
+right click on This PC/My Computer - properties - 
+advanced system settings - environment variables
+- in System variables select path and click edit
+-add bin folder path of maven root folder 
+(D:\selenium\softwares\maven\bin) at the end of the 
+path variable 
+eg: exsting path varible;D:\selenium\softwares\maven\bin;
+-click on OK
+5 Verify Maven installation by running following command
+in command prompt
+	mvn -version
+
+
+
+creating maven project in eclipse
+	File - new - project - expand Maven - select
+Maven Project - click Next in workspace selection - 
+Select quick start architype - enter Group Id: 
+which is in general reverse order of domain name 
+- enter Artifact ID: which is project name
+-click finish
+
+Once the project has been created it contains several files
+and folders including pom.xml
+here pom means Project Object Model
+this pom.xml is heart of Maven projects.
+What ever the jar files we want to associate to the 
+project build path those jar files we are going to 
+add as a dependency tag in pom.xml
+
+Maven repositories:
+Central Repository
+official apache maven website from where maven download all the jar files of dependency tags
+https://repo.maven.apache.org/maven2
+
+Local Repository:
+it is a folder in your local machine
+C:\Users\SuryaPrakash\.m2\repository
+
+Mirrors:
+These are third party servers from where maven downloads jar files
+eg: sonatype and nexus
+
+page object model:
+it's a design pattern. Selenium does not have any inbuilt object spy or object repository which
+store element information of the web site we want to automate. We have to create our own object 
+repository and we can do that using page object model or page factory
+Web Site is a collection of web pages
+each web page is a collection of multple web elements
+In page object model we will create a class for every page in our site and every element in that page
+as a method in that page class
+
+	WEBPAGE ------ CLASS
+	ELEMENT IN WEBPAGE ----- METHOD IN CLASS
+	ACTIONS WE WANT TO PERFORM ON ELEMENT ----- METHOD IN SAME CLASS
+create an Object of Page class and call the action methods of the Page class
+to create the Object 
+	PageClass obj_name = new PageClass();
+
+page factory: Page Factory is inbuilt feature of Selenium Java to create Page Object Model
+It is a class in Selenium
+In Page Factory
+
+	WEBPAGE ------ CLASS
+	ELEMENT IN WEBPAGE ----- PROPERTY IN CLASS Which is Annonated with @FindBy
+	ACTIONS WE WANT TO PERFORM ON ELEMENT ----- METHOD IN SAME CLASS
+create an Object of Page class and call the action methods of the Page class
+to create the Object 
+	PageClass obj_name = PageFactory.initElements(driver, PageClass.class);
+
