@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="groups suite">
+	<parameter name="url"
+		value="http://primusbank.qedgetech.com/" />
+	<test name="reset group">
+		<parameter name="browser" value="firefox" />
+		<groups>
+			<run>
+				<include name="reset" />
+			</run>
+		</groups>
+		<classes>
+			<class name="banking.testng_framework.ParameterExecution">
+			</class>
+		</classes>
+	</test>
+</suite>

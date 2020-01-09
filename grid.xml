@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="parallel suite" parallel="tests" thread-count="2">
+	<parameter name="url"
+		value="http://primusbank.qedgetech.com/" />
+	<test name="chrome test">
+		<parameter name="browser" value="chrome" />
+		<parameter name="nodeURL" value="http://192.168.206.1:4152/wd/hub"/>
+		<parameter name="os" value="windows"/>
+ 		<groups>
+			<run>
+				<include name="reset" />
+			</run>
+		</groups>
+		<classes>
+			<class name="banking.testng_framework.GridExecution">
+			</class>
+		</classes>
+	</test>
+	<test name="firefox test">
+		<parameter name="browser" value="firefox" />
+		<parameter name="nodeURL" value="http://172.17.138.164:14712/wd/hub"/>
+		<parameter name="os" value="linux"/>
+ 		<groups>
+			<run>
+				<include name="reset" />
+			</run>
+		</groups>
+		<classes>
+			<class name="banking.testng_framework.GridExecution">
+			</class>
+		</classes>
+	</test>
+</suite>

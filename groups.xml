@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="groups suite">
+	<test name="reset group">
+		<groups>
+			<run>
+				<include name="reset" />
+			</run>
+		</groups>
+		<classes>
+			<class name="banking.testng_framework.BasicExecution">
+			</class>
+		</classes>
+	</test>
+
+
+	<test name="valid group">
+		<groups>
+			<run>
+				<include name="valid" />
+			</run>
+		</groups>
+		<classes>
+			<class name="banking.testng_framework.BasicExecution">
+			</class>
+		</classes>
+	</test>
+</suite>
